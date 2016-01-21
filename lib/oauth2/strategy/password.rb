@@ -13,12 +13,12 @@ module OAuth2
 
       # Retrieve an access token given the specified End User username and password.
       #
-      # @param [String] username the End User username
+      # @param [String] login the End User username
       # @param [String] password the End User password
       # @param [Hash] params additional params
       def get_token(username, password, params = {}, opts = {})
         params = {'grant_type' => 'password',
-                  'username'   => username,
+                  'login'   => username,
                   'password'   => password}.merge(client_params).merge(params)
         @client.get_token(params, opts)
       end
